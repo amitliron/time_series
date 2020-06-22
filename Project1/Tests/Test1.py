@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+
+
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+# rect = plt.Rectangle((0.2, 0.75), 0.01, 0.15, color='k', alpha=1.0)
+rect = plt.Rectangle((20, 5), 3, 1, color='r', alpha=1.0)
+# circ = plt.Circle((0.7, 0.2), 0.15, color='b', alpha=0.3)
+# pgon = plt.Polygon([[0.15, 0.15], [0.35, 0.4], [0.2, 0.6]],
+# color='g', alpha=0.5)
+
+ax.add_patch(rect)
+# ax.add_patch(circ)
+# ax.add_patch(pgon)
+
+ax.set_xlim(0, 30)
+ax.set_ylim(0, 10)
+plt.show()

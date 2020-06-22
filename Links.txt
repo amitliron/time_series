@@ -1,0 +1,9 @@
+https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/
+https://towardsdatascience.com/deep-learning-for-time-series-classification-inceptiontime-245703f422db
+https://paperswithcode.com/paper/shallow-rnn-accurate-time-series
+https://paperswithcode.com/paper/multiple-instance-learning-for-efficient
+
+
+
+best HP opt
+https://medium.com/@crawftv/parameter-hyperparameter-tuning-with-bayesian-optimization-7acf42d348e1
