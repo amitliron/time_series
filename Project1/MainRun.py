@@ -34,12 +34,12 @@ if __name__ == '__main__':
     #run_function(histXgb.Run,runParamsDic)
     # ----------- Serias  uni var------
     #run_function(uniVarCnnLstm.Run, runParamsDic)   # amitli changes
-    run_function(uniVarConvLstm.Run, runParamsDic)
+    #run_function(uniVarConvLstm.Run, runParamsDic)
     #run_function(uniVarLstm.Run, runParamsDic)
     #run_function(uniVarBLstm.Run, runParamsDic)
 
     # ----------- Serias  multi var------
-    # run_function(multiVarLstm.Run,runParamsDic)
+    run_function(multiVarLstm.Run,runParamsDic)
     # run_function(multiVarBLstm.Run, runParamsDic)
     # run_function(multiVarCnnLstm.Run,runParamsDic)
     #run_function(multiVarConvLstm.Run,runParamsDic)

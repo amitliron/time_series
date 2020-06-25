@@ -1,46 +1,46 @@
 ,,Conv_Lstm_Univar_accuracy
 test name,score
-Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 10, 'batch_size': 500, 'num_filters': 16}",acc,-1.0,0.9999997,0.9999999,1.0,0.99999994,1.9214814e-07,3.3278917e-07,2.0132741e-07,8.084666e-08,***,2.8653074e-07,1.1309857e-07,1.7759966e-09,3.2464605e-08,0.9999998,0.99999964,0.9999998,0.99999994
-Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 3549, 'num_filters': 26}",acc,-0.9941619038581848,0.9929467,0.9937399,0.98648345,0.9916381,0.0054113963,0.0051407274,0.00810017,0.0104493005,***,0.007053333,0.0062601,0.013516518,0.008361873,0.9945886,0.9948593,0.99189985,0.9895507
-Conv_Lstm_Univar,"{'timeSteps': 200, 'seq': 10, 'batch_size': 3561, 'num_filters': 89}",acc,-1.0,1.0,1.0,1.0,1.0,1.6677257e-19,3.337803e-19,5.0899927e-17,4.2961073e-19,***,2.307182e-23,2.412798e-25,1.8462526e-23,7.11958e-25,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 200, 'seq': 20, 'batch_size': 2652, 'num_filters': 55}",acc,-0.9997810125350952,1.0,1.0,1.0,1.0,0.0010690744,1.3853589e-09,1.4877217e-09,4.746929e-09,***,4.07481e-13,4.4048766e-12,4.946383e-12,4.728917e-13,0.99893093,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 200, 'seq': 20, 'batch_size': 4550, 'num_filters': 57}",acc,-1.0,1.0,1.0,1.0,1.0,2.5699534e-18,3.716381e-24,4.103871e-22,5.116769e-24,***,8.408682e-12,1.1389598e-13,1.7012345e-11,2.9443215e-11,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 200, 'seq': 10, 'batch_size': 1097, 'num_filters': 79}",acc,-1.0,1.0,1.0,1.0,1.0,8.759199e-17,7.04862e-17,1.7374012e-15,1.1734943e-16,***,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 20, 'batch_size': 4009, 'num_filters': 36}",acc,-0.9411926865577698,0.007810566,8.604087e-06,4.4372257e-05,3.6595222e-05,2.3474895e-06,3.9844554e-08,5.9427046e-09,1.8524018e-07,***,0.99218947,0.9999914,0.99995565,0.9999634,0.9999977,0.99999994,1.0,0.9999998
-Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 1624, 'num_filters': 16}",acc,-0.999900758266449,0.99893874,0.99616003,0.997757,0.9982688,4.3828613e-06,3.565718e-05,0.00048095753,4.2602232e-06,***,0.0010612485,0.003839997,0.002242972,0.0017312232,0.99999565,0.99996436,0.99951905,0.99999577
-Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 20, 'batch_size': 1084, 'num_filters': 111}",acc,-1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,***,8.033859e-28,7.116215e-24,2.7574168e-24,5.185486e-24,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 10, 'batch_size': 4629, 'num_filters': 71}",acc,-1.0,1.0,1.0,1.0,1.0,3.7595352e-10,2.184352e-08,3.3459102e-10,1.6903867e-09,***,1.15382354e-35,8.360183e-36,1.4473289e-38,1.7245634e-38,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 10, 'batch_size': 2308, 'num_filters': 101}",acc,-1.0,0.99998784,0.99998975,0.9999827,0.9999918,2.7590571e-28,3.8037482e-27,1.973694e-27,1.455101e-26,***,1.2152598e-05,1.02574995e-05,1.7305485e-05,8.231635e-06,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 924, 'num_filters': 128}",acc,-1.0,1.0,0.99979556,1.0,1.0,4.2853026e-06,4.098674e-38,0.0,7.1610166e-06,***,7.142916e-09,0.0002044761,2.00739e-08,3.2022527e-08,0.9999957,1.0,1.0,0.99999285
-Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 10, 'batch_size': 543, 'num_filters': 128}",acc,-1.0,1.0,1.0,1.0,1.0,8.186284e-27,1.07078716e-26,3.576352e-25,1.0270331e-26,***,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 20, 'batch_size': 500, 'num_filters': 128}",acc,-1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,***,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0
-Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 10, 'batch_size': 514, 'num_filters': 96}",acc,-1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,***,8.770345e-21,2.7110664e-20,1.7417815e-23,7.535172e-20,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 10, 'batch_size': 500, 'num_filters': 16}",acc,-0.9997156262397766,1.0,1.0,1.0,1.0,0.0003904692,0.0006184293,2.413039e-12,0.0006769667,***,1.0545808e-08,2.4554957e-08,7.1672925e-11,2.3010276e-09,0.99960953,0.99938154,1.0,0.999323
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 1908, 'num_filters': 74}",acc,-1.0,0.9999996,0.9999978,0.99999934,0.99999845,1.4785849e-10,5.5444607e-27,3.1718887e-20,4.941643e-17,***,4.201682e-07,2.1968008e-06,6.4037863e-07,1.5798094e-06,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 20, 'batch_size': 1697, 'num_filters': 17}",acc,-0.9998420476913452,1.0,1.0,1.0,1.0,2.317754e-06,0.0006532791,3.336876e-07,0.00010025556,***,1.3205506e-08,6.22746e-14,2.4012948e-13,1.0014937e-08,0.9999977,0.99934673,0.99999964,0.99989974
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 3325, 'num_filters': 54}",acc,-0.9998940825462341,0.9996607,0.9995951,0.99968034,0.99954236,3.6278207e-06,0.0005591981,7.942511e-07,2.870093e-05,***,0.0003393394,0.00040489362,0.00031965759,0.00045764798,0.99999636,0.9994408,0.9999992,0.9999713
+Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 10, 'batch_size': 2024, 'num_filters': 30}",acc,-1.0,0.9999933,0.9999853,0.99998456,0.99997437,4.3158743e-05,4.661344e-05,0.00011007961,4.241829e-05,***,6.663326e-06,1.4752415e-05,1.5445461e-05,2.5635562e-05,0.99995685,0.9999534,0.9998899,0.99995756
+Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 20, 'batch_size': 1544, 'num_filters': 32}",acc,-1.0,0.9999987,0.99999833,0.9999989,0.99999875,2.765196e-06,4.336367e-07,3.9577745e-07,4.4807616e-06,***,1.3232775e-06,1.6749838e-06,1.0454983e-06,1.2325421e-06,0.99999726,0.9999996,0.9999996,0.9999955
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 1093, 'num_filters': 100}",acc,-1.0,1.0,0.99999994,1.0,1.0,0.0,0.0,0.0,0.0,***,2.5318284e-08,3.421408e-08,9.1255385e-09,1.0668728e-08,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 20, 'batch_size': 787, 'num_filters': 81}",acc,-1.0,1.0,1.0,1.0,1.0,9.027009e-39,0.0,3.28085e-40,8.421199e-38,***,1.28858355e-08,6.633791e-09,2.8319298e-09,7.796194e-09,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 1831, 'num_filters': 97}",acc,-1.0,1.0,1.0,1.0,1.0,5.9299167e-15,6.7588833e-13,1.0415817e-18,7.3409475e-20,***,9.202829e-16,1.6846973e-15,1.883631e-15,2.4943528e-14,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 693, 'num_filters': 21}",acc,-1.0,0.99999976,0.99999994,0.99999964,0.99999994,2.2759502e-07,1.7334102e-07,1.1215437e-07,1.7929486e-07,***,2.1300983e-07,7.214996e-08,3.4279265e-07,5.4896166e-08,0.99999976,0.9999998,0.9999999,0.9999998
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 10, 'batch_size': 3056, 'num_filters': 42}",acc,-1.0,1.0,1.0,1.0,1.0,5.269802e-15,1.3107149e-15,1.034607e-14,4.616483e-15,***,1.6201209e-12,1.5493109e-12,2.0429677e-13,3.5834912e-13,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 400, 'seq': 10, 'batch_size': 2506, 'num_filters': 124}",acc,-1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,***,7.8871975e-33,1.919705e-33,1.781819e-33,1.4565912e-34,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 60, 'seq': 10, 'batch_size': 2462, 'num_filters': 33}",acc,-1.0,0.9999901,0.9999932,0.99999255,0.9999911,1.143617e-06,1.4792296e-06,1.8667705e-06,1.6277359e-06,***,9.9111885e-06,6.772048e-06,7.4352474e-06,8.861432e-06,0.99999887,0.9999985,0.99999815,0.9999984
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 1782, 'num_filters': 83}",acc,-1.0,1.0,1.0,1.0,1.0,8.890487e-15,5.0846862e-17,1.0392959e-17,3.3632215e-18,***,4.298976e-13,1.5607569e-13,5.7644895e-14,9.735196e-14,1.0,1.0,1.0,1.0
+Conv_Lstm_Univar,"{'timeSteps': 120, 'seq': 20, 'batch_size': 1820, 'num_filters': 80}",acc,-1.0,1.0,1.0,1.0,1.0,7.307475e-33,1.677901e-25,8.716941e-35,2.584589e-39,***,0.0,6.787062e-37,2.4139413e-37,0.0,1.0,1.0,1.0,1.0
 
 Conv_Lstm_Univar,"          fun: -1.0
-    func_vals: array([-1.        , -0.9941619 , -1.        , -0.99978101, -1.        ,
-       -1.        , -0.94119269, -0.99990076, -1.        , -1.        ,
+    func_vals: array([-0.99971563, -1.        , -0.99984205, -0.99989408, -1.        ,
+       -1.        , -1.        , -1.        , -1.        , -1.        ,
        -1.        , -1.        , -1.        , -1.        , -1.        ])
        models: [GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
                          n_restarts_optimizer=2, noise=0.01, normalize_y=True,
-                         random_state=35248285), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
+                         random_state=684960222), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
                          n_restarts_optimizer=2, noise=0.01, normalize_y=True,
-                         random_state=35248285), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
+                         random_state=684960222), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
                          n_restarts_optimizer=2, noise=0.01, normalize_y=True,
-                         random_state=35248285), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
+                         random_state=684960222), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
                          n_restarts_optimizer=2, noise=0.01, normalize_y=True,
-                         random_state=35248285), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
+                         random_state=684960222), GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5) + WhiteKernel(noise_level=0.01),
                          n_restarts_optimizer=2, noise=0.01, normalize_y=True,
-                         random_state=35248285)]
- random_state: <mtrand.RandomState object at 0x7f02b006eaf8>
+                         random_state=684960222)]
+ random_state: <mtrand.RandomState object at 0x7f11ed01bc60>
         space: Space([Categorical(categories=(60, 120, 200, 400), prior=None),
        Categorical(categories=(10, 20), prior=None),
        Integer(low=500, high=5000, prior='uniform', transform='normalize'),
        Integer(low=16, high=128, prior='uniform', transform='normalize')])
-        specs: {'args': {'model_queue_size': None, 'n_jobs': -1, 'kappa': 4, 'xi': 0.01, 'n_restarts_optimizer': 5, 'n_points': 10000, 'callback': None, 'verbose': True, 'random_state': <mtrand.RandomState object at 0x7f02b006eaf8>, 'y0': None, 'x0': [60, 10, 500, 16], 'acq_optimizer': 'auto', 'acq_func': 'gp_hedge', 'n_random_starts': 10, 'n_calls': 15, 'base_estimator': GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5),
+        specs: {'args': {'model_queue_size': None, 'n_jobs': -1, 'kappa': 4, 'xi': 0.01, 'n_restarts_optimizer': 5, 'n_points': 10000, 'callback': None, 'verbose': True, 'random_state': <mtrand.RandomState object at 0x7f11ed01bc60>, 'y0': None, 'x0': [60, 10, 500, 16], 'acq_optimizer': 'auto', 'acq_func': 'gp_hedge', 'n_random_starts': 10, 'n_calls': 15, 'base_estimator': GaussianProcessRegressor(kernel=1**2 * Matern(length_scale=[1, 1, 1, 1, 1, 1, 1], nu=2.5),
                          n_restarts_optimizer=2, noise=0.01, normalize_y=True,
-                         random_state=35248285), 'dimensions': Space([Categorical(categories=(60, 120, 200, 400), prior=None),
+                         random_state=684960222), 'dimensions': Space([Categorical(categories=(60, 120, 200, 400), prior=None),
        Categorical(categories=(10, 20), prior=None),
        Integer(low=500, high=5000, prior='uniform', transform='normalize'),
-       Integer(low=16, high=128, prior='uniform', transform='normalize')]), 'func': <function objective at 0x7f025b186b70>}, 'function': 'base_minimize'}
-            x: [60, 10, 500, 16]
-      x_iters: [[60, 10, 500, 16], [120, 20, 3549, 26], [200, 10, 3561, 89], [200, 20, 2652, 55], [200, 20, 4550, 57], [200, 10, 1097, 79], [400, 20, 4009, 36], [120, 20, 1624, 16], [400, 20, 1084, 111], [400, 10, 4629, 71], [60, 10, 2308, 101], [120, 20, 924, 128], [400, 10, 543, 128], [400, 20, 500, 128], [400, 10, 514, 96]]"
+       Integer(low=16, high=128, prior='uniform', transform='normalize')]), 'func': <function objective at 0x7f11b9b850d0>}, 'function': 'base_minimize'}
+            x: [120, 20, 1908, 74]
+      x_iters: [[60, 10, 500, 16], [120, 20, 1908, 74], [400, 20, 1697, 17], [120, 20, 3325, 54], [60, 10, 2024, 30], [60, 20, 1544, 32], [120, 20, 1093, 100], [60, 20, 787, 81], [120, 20, 1831, 97], [120, 20, 693, 21], [120, 10, 3056, 42], [400, 10, 2506, 124], [60, 10, 2462, 33], [120, 20, 1782, 83], [120, 20, 1820, 80]]"

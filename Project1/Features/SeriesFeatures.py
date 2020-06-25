@@ -16,7 +16,29 @@ def pad(l, content, width):
 def normalize(data):
     return (data - min(data)) / (max(data) - min(data))
 
-def split_sequence(sequence,X,y, n_steps,gt, id):
+def split_sequence(sequence,X,y, n_steps,gt, id=None):
+    '''
+
+    :param sequence:
+                dataframe:
+
+                    ------------------------------------------
+                    |values | time_diff | width_1 | width _2 |
+                    ------------------------------------------
+
+    :param X:
+            add result to here (see below)
+    :param y:
+            add result to here (see below)
+    :param n_steps:
+                window size
+    :param gt:
+    :param id:
+    :return:
+        X, y
+        X - list (every element is 2D: [window_size, num_of_features])
+        y - list (every element is one dim)
+    '''
     if len(sequence) < n_steps:
         sequence = pad(sequence, 0, n_steps)
 
@@ -28,7 +50,8 @@ def split_sequence(sequence,X,y, n_steps,gt, id):
             break
         # gather input and output parts of the pattern
         seq_x, seq_y = sequence[i:end_ix],gt
-        seq_x = np.insert(seq_x, 0, id)        # amitli
+        if id is not None:
+            seq_x = np.insert(seq_x, 0, id)        # amitli
         X.append(seq_x)
         y.append(seq_y)
 
@@ -56,26 +79,40 @@ def split_sequence_univariate(sequence, n_steps_in, n_steps_out):
     return array(X), array(y)
 
 
-# # split a multivariate sequence into samples
-# def split_sequences_multivariate(sequences, n_steps_in, n_steps_out):
-#     X, y = list(), list()
-#     for i in range(len(sequences)):
-#         # find the end of this pattern
-#         end_ix = i + n_steps_in
-#         # check if we are beyond the dataset
-#         if end_ix > len(sequences) - n_steps_out:
-#             break
-#         # gather input and output parts of the pattern
-#         if n_steps_out > 0:
-#             seq_x, seq_y = sequences[i:end_ix, :-1], sequences[end_ix: end_ix + n_steps_out, -1]
-#         else:
-#             seq_x, seq_y = sequences[i:end_ix, :-1], sequences[end_ix - 1 + n_steps_out: end_ix + n_steps_out, -1]
-#         X.append(seq_x)
-#         y.append(seq_y)
-#     return array(X), array(y)
 
+def print_dataset_statistics(ds):
+
+    print("--------------")
+    a = ds.groupby('Id').count()
+    #a['res'] = (a['ID']-60+1)
+    a['res'] = a.apply(lambda row : row.GT -1 - 60 + 1, axis=1)
+    print(a.head(40))
+    print("")
+    print(a.sum())
+    print("--------------")
+    None
 
 def BuildDataSetForTimeSeries_Multivariate (ds, steps, bNormalize):
+    '''
+
+    :param ds:
+    :param steps: - window size
+    :param bNormalize:
+    :return:
+        X, y
+        X [#Diff-steps+1,  window_size, num_of_features]
+        y [#samples]
+        Ids [#Diff]
+
+    * temp = num of diff per each ID = #samples per each ID - 1
+    # window_size = steps
+    * #rows_per_each_ID = temp * window_size + 1
+    # #rows for results = SUM {#rows_per_each_ID} per each ID
+
+
+    '''
+
+
     start_time = time.time()
     print('Start build DataSet For TimeSeries Multivariate ....')
 
@@ -113,11 +150,15 @@ def BuildDataSetForTimeSeries_Multivariate (ds, steps, bNormalize):
         # horizontally stack columns
         dataset = hstack((diff_array, width1_array, width2_array))
 
-        split_sequence(dataset, X, y, steps, f['GT'][size - 1])
+        # amitli:
+        current_ID_list = [id] * (len(diff_array) - steps + 1)
+        ID = ID + current_ID_list
+
+        split_sequence(dataset, X, y, steps, f['GT'][size - 1], id=None)
 
     # --- return [samples, timesteps]
     print('End build DataSet For TimeSeries Multivariate: ' + 'seconds= ' + str("%.3f" % (time.time() - start_time)))
-    return np.array(X), np.array(y)
+    return np.array(X), np.array(y), np.array(ID)
 
 
 def split_groups(full_x_test,  y_predict):
@@ -125,7 +166,10 @@ def split_groups(full_x_test,  y_predict):
     class_0 = y_predict[:, 0]
     class_1 = y_predict[:, 1]
 
-    df = pd.DataFrame({'ID': full_x_test[:, 0]})
+    if full_x_test.ndim == 1:
+        df = pd.DataFrame({'ID': full_x_test})
+    else:
+        df = pd.DataFrame({'ID': full_x_test[:, 0]})
     df['GT_0'] = class_0
     df['GT_1'] = class_1
 
@@ -154,7 +198,10 @@ def get_kolmogorov_smirnov_score(full_x_test,  y_predict):
     class_0 = y_predict[:,0]
     class_1 = y_predict[:,1]
 
-    df = pd.DataFrame({'ID': full_x_test[:, 0]})
+    if full_x_test.ndim == 1:
+        df = pd.DataFrame({'ID': full_x_test})
+    else:
+        df = pd.DataFrame({'ID': full_x_test[:, 0]})
     df['GT_0'] = class_0
     df['GT_1'] = class_1
 
@@ -180,6 +227,85 @@ def get_kolmogorov_smirnov_score(full_x_test,  y_predict):
     # smaller ks_stat values is good
     return ks_stat
 
+def train_test_split(X, y, IDs):
+    #
+    #   input:
+    #           X   [#diff, window_size, #features]
+    #           y   [#diff]
+    #           IDs [#diff]
+    #
+    #   output:
+    #       X_train, X_test, y_train, y_test, ID_train, ID_test
+    #           - encoded as ndarray
+    #
+    #
+
+    #
+    #   create dataset (helper dataset):
+    #       [ID, COUNT, NUM_OF_GT_WHICH_IS-ONE]
+    #
+
+    tmp_df = pd.DataFrame({'Id': IDs})
+    gts_list = []
+    for i in range(len(y)):
+        if y[i][0] == 1:
+            gts_list.append(0)
+        else:
+            gts_list.append(1)
+    tmp_df['GT'] = gts_list
+
+    statisics_ds = pd.DataFrame()
+    statisics_ds['Id'] = list(set(IDs.tolist()))
+    statisics_ds['Count'] = np.bincount(IDs)
+    statisics_ds['GT'] = tmp_df.groupby('Id').sum() / tmp_df.groupby('Id').count()  # put 0 or 1
+    print("")
+    print(statisics_ds.head(30))
+
+    #
+    #   get list of id's with GT = 0 or 1
+    #
+    list_ids_with_gt_0 = list(statisics_ds[statisics_ds['GT'] == 0]['Id'])
+    list_ids_with_gt_1 = list(statisics_ds[statisics_ds['GT'] == 1]['Id'])
+
+    #
+    #   split the Id's to train and test
+    #
+    SPLIT_FACTOR = 0.2
+    train_ids_with_gt_0 = random.sample(list_ids_with_gt_0, int(len(list_ids_with_gt_0) * (1 - SPLIT_FACTOR)))
+    test_ids_with_gt_0 = np.setdiff1d(list_ids_with_gt_0, train_ids_with_gt_0).tolist()
+
+    train_ids_with_gt_1 = random.sample(list_ids_with_gt_1, int(len(list_ids_with_gt_1) * (1 - SPLIT_FACTOR)))
+    test_ids_with_gt_1 = np.setdiff1d(list_ids_with_gt_1, train_ids_with_gt_1).tolist()
+
+    train_Id_list = train_ids_with_gt_0 + train_ids_with_gt_1
+    test_Id_list = test_ids_with_gt_0 + test_ids_with_gt_1
+
+    #
+    #   prepare X_train, X_test
+    #
+    row_indexes_for_train = []
+    row_indexes_for_test = []
+    for i in range (len(IDs)):
+        if IDs[i] in train_Id_list:
+            row_indexes_for_train.append(i)
+        else:
+            row_indexes_for_test.append(i)
+
+    X_train = X[row_indexes_for_train,:,:]
+    X_test = X[row_indexes_for_test, :, :]
+    y_train = y[row_indexes_for_train, :]
+    y_test = y[row_indexes_for_test, :]
+
+    #
+    # prepare train and test IDs list
+    #
+    train_Id_list = IDs[row_indexes_for_train]
+    test_Id_list = IDs[row_indexes_for_test]
+
+    #
+    # return results
+    #
+    return X_train, X_test, y_train, y_test, train_Id_list, test_Id_list
 
 def train_test_split_by_IDs(X, y):
     #
@@ -214,7 +340,8 @@ def train_test_split_by_IDs(X, y):
     #
     # create data frame table statistics:
     #
-    #       [Id, series, GT]
+    #       [Id, count, num_of_GT_which_is_one]
+    #
     #
     statisics_ds = pd.DataFrame()
     statisics_ds['Id'] = input_df['Id'].unique()
@@ -271,8 +398,8 @@ def train_test_split_by_IDs(X, y):
     #X_train
     #   remove 'GT' column from X_train, X_test
     #
-    X_train.drop(['GT'], axis=1, inplace=True)
-    X_test.drop(['GT'], axis=1, inplace=True)
+    X_train = X_train.drop(['GT'], axis=1)
+    X_test = X_test.drop(['GT'], axis=1)
 
     # convert to ndarray
     X_train = X_train.to_numpy()
@@ -285,75 +412,6 @@ def train_test_split_by_IDs(X, y):
     #
     return X_train, X_test, y_train, y_test
 
-# def train_test_split_2(df, X, y):
-#
-#     SPLIT_FACTOR = 0.2
-#
-#     #
-#     # table statistics:
-#     #
-#     #       [Id, Count, GT]
-#     #
-#     statisics_ds = pd.DataFrame()
-#     statisics_ds['Id'] = df['Id'].unique()
-#     statisics_ds['count'] = df.groupby('Id')['GT'].count()
-#     statisics_ds['GT'] = (df.groupby('Id')['GT'].sum() / df.groupby('Id')['GT'].count())
-#
-#     #
-#     #   get list of id's with GT = 0 or 1
-#     #
-#     list_ids_with_gt_0 = list(statisics_ds[statisics_ds['GT'] == 0]['Id'])
-#     list_ids_with_gt_1 = list(statisics_ds[statisics_ds['GT'] == 1]['Id'])
-#
-#     #
-#     #   split the Id's to train and test
-#     #
-#     train_ids_with_gt_0 = random.sample(list_ids_with_gt_0, int(len(list_ids_with_gt_0)*(1-SPLIT_FACTOR)))
-#     test_ids_with_gt_0 = np.setdiff1d(list_ids_with_gt_0, train_ids_with_gt_0)
-#
-#     train_ids_with_gt_1 = random.sample(list_ids_with_gt_1, int(len(list_ids_with_gt_1) * (1 - SPLIT_FACTOR)))
-#     test_ids_with_gt_1 = np.setdiff1d(list_ids_with_gt_1, train_ids_with_gt_1)
-#
-#     X_train_Id_list = train_ids_with_gt_0 + train_ids_with_gt_1
-#     X_test_Id_list = test_ids_with_gt_0 + test_ids_with_gt_1
-#
-#     #
-#     #   prepare X_train, X_test
-#     #
-#     X_train = df.loc[df['Id'].isin(X_train_Id_list)]
-#     X_test = df.loc[df['Id'].isin(X_test_Id_list)]
-#
-#     #
-#     #   prepare y_train, y_test
-#     #
-#     y_train_values = X_train['GT']
-#     y_test_values = X_test['GT']
-#
-#     y_train = np.zeros((y_train_values.shape[0], 2))
-#     y_test = np.zeros((y_test_values.shape[0], 2))
-#
-#     for i in range(len(y_train)):
-#         if y_train_values[i] == 0:
-#             y_train[i][0] = 1
-#         else:
-#             y_train[i][1] = 1
-#
-#     for i in range(len(y_test)):
-#         if y_test_values[i] == 0:
-#             y_test[i][0] = 1
-#         else:
-#             y_test[i][1] = 1
-#
-#     #
-#     #   remove 'GT' column from X_train, X_test
-#     #
-#     X_train.drop(['GT'], axis=1)
-#     X_test.drop(['GT'], axis=1)
-#
-#     X_train = X_train.to_numpy()
-#     X_test = X_test.to_numpy()
-#
-#     return X_train, X_test, y_train, y_test
 
 def split_series_to_id_and_series(X_train, X_test):
     REMOVE_COL = 1

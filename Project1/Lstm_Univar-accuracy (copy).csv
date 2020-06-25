@@ -1,4 +1,0 @@
-,,Lstm_Univar-accuracy
-test name,score
-Lstm_Univar,"{'timeSteps': 60, 'batch_size': 500, 'num_layers': 1, 'num_units': 50}",acc,-0.9519835114479065,0.81185544,0.783967,0.818373,0.79521835,0.019742642,0.01579503,0.013955949,0.01803712,***,0.18814458,0.216033,0.18162696,0.20478165,0.98025733,0.98420495,0.98604405,0.98196286
-Lstm_Univar,"{'timeSteps': 200, 'batch_size': 818, 'num_layers': 2, 'num_units': 73}",acc,-0.0,nan,nan,nan,nan,nan,nan,nan,nan,***,nan,nan,nan,nan,nan,nan,nan,nan

@@ -1,3 +1,4 @@
+from Results import ResultRecorder as result_recorder
 from Utiles import SimulatedData as sd
 from Features import HistFeatures as hs, SeriesFeatures as sf
 import numpy as np
@@ -81,24 +82,31 @@ def worker(params,runParmsDic,return_dict):
     print('Start train Multivariate LSTM model ....')
     # ds = sd.GetDemoData1()
     ds = sd.GetSimulatData(runParmsDic['dsName'])
-    X, y = sf.BuildDataSetForTimeSeries_Multivariate(ds=ds, steps=params['timeSteps'], bNormalize=bNormalize)
+    sf.print_dataset_statistics(ds)
+    X, y, IDs = sf.BuildDataSetForTimeSeries_Multivariate(ds=ds, steps=params['timeSteps'], bNormalize=bNormalize)
     # sd.PrintDs(X)
     y = to_categorical(y)
 
     # split data into train and test sety
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=seed)
+    X_train, X_test, y_train, y_test, train_Id_list, test_Id_list = sf.train_test_split(X, y, IDs)
+
+
+
+    n_samples_train = X_train.shape[0]
+    n_samples_test = X_test.shape[0]
 
     # No need for reshape
     n_timesteps = X.shape[1]
+    X_train = X_train.reshape((n_samples_train, (int)(params['timeSteps']), n_features))
+    X_test = X_test.reshape((n_samples_test, (int)(params['timeSteps']), n_features))
 
     # fit model
-    earlyStopping = EarlyStopping(monitor='val_acc', min_delta=0, patience=10, verbose=0, mode='auto',
-                                  baseline=None, restore_best_weights=False)
-    reduceLROnPlateau = ReduceLROnPlateau(monitor='val_acc', factor=0.5, patience=10, verbose=0, mode='auto',
-                                          min_delta=0.0001, cooldown=0, min_lr=0)
+    earlyStopping = EarlyStopping(monitor='val_acc', min_delta=0, patience=10, verbose=0, mode='auto',baseline=None, restore_best_weights=False)
+    reduceLROnPlateau = ReduceLROnPlateau(monitor='val_acc', factor=0.5, patience=10, verbose=0, mode='auto',min_delta=0.0001, cooldown=0, min_lr=0)
     callbacks_list = [earlyStopping, reduceLROnPlateau]
-    blackbox = model.fit(X_train, y_train, epochs=epochs, verbose=verbose, batch_size=params['batch_size'],
-              validation_data=(X_test, y_test), callbacks=callbacks_list)
+    blackbox = model.fit(X_train, y_train, epochs=epochs, verbose=verbose, batch_size=params['batch_size'],validation_data=(X_test, y_test), callbacks=callbacks_list)
+    y_predict = model.predict(X_test)
+
 
     # return the validation accuracy for the last epoch.
     accuracy = blackbox.history['val_acc'][-1]
@@ -112,7 +120,23 @@ def worker(params,runParmsDic,return_dict):
     mlFlow1.log_metric('seconds', seconds)
     mlFlow1.log_metric('acc', accuracy)
 
-    return_dict['ret'] = -accuracy
+
+    #
+    #   save results
+    #
+    res = 0
+    if runParmsDic['optimzation_func']=="acc":
+        res = -accuracy
+        return_dict['ret'] = -accuracy
+    else:
+        res = sf.get_kolmogorov_smirnov_score(test_Id_list,  y_predict)
+        print("ks_stat = ", res)
+        return_dict['ret'] = res
+
+    c1, c2 = sf.split_groups(test_Id_list,  y_predict)
+    result_recorder.record_results("LSTM_Multivar", params, runParmsDic['optimzation_func'], res, c1, c2)
+
+    # DONE
     return
 
 @use_named_args(space)
@@ -129,6 +153,24 @@ def Run(_runParmsDic):
     global runParmsDic
     runParmsDic = _runParmsDic
 
+    # ------- accuracy ------
+    # result_recorder.create_headers(header="LSTM_Multivar-accuracy", parameters=None)
+    # runParmsDic['optimzation_func'] = 'acc'
+    # gp_result = gp_minimize(func=objective,
+    #                         dimensions=space,
+    #                         n_calls=15,
+    #                         noise=0.01,
+    #                         n_jobs=-1,
+    #                         kappa=4,
+    #                         x0=default_parameters,
+    #                         verbose=True)
+    #
+    # result_recorder.record_best_results("LSTM_Multivar", gp_result)
+    # print("Best Results: ", gp_result)
+
+    # ------- ks ------
+    result_recorder.create_headers(header="LSTM_Multivar-ks", parameters=None)
+    runParmsDic['optimzation_func'] = 'ks'
     gp_result = gp_minimize(func=objective,
                             dimensions=space,
                             n_calls=15,
@@ -137,6 +179,12 @@ def Run(_runParmsDic):
                             kappa=4,
                             x0=default_parameters,
                             verbose=True)
+
+    result_recorder.record_best_results("LSTM_Multivar", gp_result)
+    print("Best Results: ", gp_result)
+
+    # ------- finished ------
+    print("Finished")
 
 
 

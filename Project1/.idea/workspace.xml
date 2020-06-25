@@ -2960,15 +2960,25 @@
       <change afterPath="$PROJECT_DIR$/../../../DockerExample/venv/lib/python3.6/site-packages/xgboost/training.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../DockerExample/venv/lib64" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../DockerExample/venv/pyvenv.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AmitliTests/amitli.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../TimeSeriesFeatures/Features/UnivariateSeriesModels/BLstm_univar.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../TimeSeriesFeatures/Features/UnivariateSeriesModels/CnnLstm_univar.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../TimeSeriesFeatures/Features/UnivariateSeriesModels/ConvLstm_univar.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../TimeSeriesFeatures/Features/UnivariateSeriesModels/Lstm_univar.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../TimeSeriesFeatures/Input/Row99_f=40.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../TimeSeriesFeatures/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MlFlowData/EventClass_1/MlFloew.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../MlFlowData/EventClass_1/MlFloew.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MlFlowData/EventClass_1/MlFloew.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../MlFlowData/EventClass_1/MlFloew.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmitliTests/amitli.py" beforeDir="false" afterPath="$PROJECT_DIR$/AmitliTests/amitli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conv_Lstm_Univar-ks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Conv_Lstm_Univar-ks.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Conv_Lstm_Univar_accuracy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Conv_Lstm_Univar_accuracy.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Features/SeriesFeatures.py" beforeDir="false" afterPath="$PROJECT_DIR$/Features/SeriesFeatures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lstm_Univar-accuracy (copy).csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lstm_Univar-accuracy.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainRun.py" beforeDir="false" afterPath="$PROJECT_DIR$/MainRun.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MultivariateSeriesModels/Lstm_multivar.py" beforeDir="false" afterPath="$PROJECT_DIR$/MultivariateSeriesModels/Lstm_multivar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RunLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/RunLog.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -2983,7 +2993,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="103" />
@@ -3170,54 +3180,54 @@
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state x="394" y="149" width="1189" height="927" key="CommitChangelistDialog2/67.27.1853.1173@67.27.1853.1173" timestamp="1592811505649" />
-    <state width="1851" height="480" key="DebuggerActiveHint" timestamp="1592198795690">
+    <state width="1851" height="480" key="DebuggerActiveHint" timestamp="1592823363996">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
-    <state width="1851" height="480" key="DebuggerActiveHint/67.27.1853.1173@67.27.1853.1173" timestamp="1592198795690" />
+    <state width="1851" height="480" key="DebuggerActiveHint/67.27.1853.1173@67.27.1853.1173" timestamp="1592823363996" />
     <state x="167" y="125" width="1653" height="975" key="DiffContextDialog" timestamp="1592456319193">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state x="167" y="125" width="1653" height="975" key="DiffContextDialog/67.27.1853.1173@67.27.1853.1173" timestamp="1592456319193" />
-    <state width="1807" height="495" key="GridCell.Tab.0.bottom" timestamp="1592817332681">
+    <state width="1830" height="495" key="GridCell.Tab.0.bottom" timestamp="1593068918516">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.0.bottom/67.27.1853.1173@67.27.1853.1173" timestamp="1592817332681" />
-    <state width="1807" height="495" key="GridCell.Tab.0.center" timestamp="1592817332680">
+    <state width="1830" height="495" key="GridCell.Tab.0.bottom/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918516" />
+    <state width="1830" height="495" key="GridCell.Tab.0.center" timestamp="1593068918516">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.0.center/67.27.1853.1173@67.27.1853.1173" timestamp="1592817332680" />
-    <state width="1807" height="495" key="GridCell.Tab.0.left" timestamp="1592817332680">
+    <state width="1830" height="495" key="GridCell.Tab.0.center/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918516" />
+    <state width="1830" height="495" key="GridCell.Tab.0.left" timestamp="1593068918516">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587296796047" />
-    <state width="1807" height="495" key="GridCell.Tab.0.left/67.27.1853.1173@67.27.1853.1173" timestamp="1592817332680" />
-    <state width="1807" height="495" key="GridCell.Tab.0.right" timestamp="1592817332681">
+    <state width="1830" height="495" key="GridCell.Tab.0.left/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918516" />
+    <state width="1830" height="495" key="GridCell.Tab.0.right" timestamp="1593068918516">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.0.right/67.27.1853.1173@67.27.1853.1173" timestamp="1592817332681" />
-    <state width="1807" height="495" key="GridCell.Tab.1.bottom" timestamp="1592816666483">
+    <state width="1830" height="495" key="GridCell.Tab.0.right/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918516" />
+    <state width="1830" height="495" key="GridCell.Tab.1.bottom" timestamp="1593068918517">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.1.bottom/67.27.1853.1173@67.27.1853.1173" timestamp="1592816666483" />
-    <state width="1807" height="495" key="GridCell.Tab.1.center" timestamp="1592816666483">
+    <state width="1830" height="495" key="GridCell.Tab.1.bottom/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918517" />
+    <state width="1830" height="495" key="GridCell.Tab.1.center" timestamp="1593068918516">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.1.center/67.27.1853.1173@67.27.1853.1173" timestamp="1592816666483" />
-    <state width="1807" height="495" key="GridCell.Tab.1.left" timestamp="1592816666482">
+    <state width="1830" height="495" key="GridCell.Tab.1.center/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918516" />
+    <state width="1830" height="495" key="GridCell.Tab.1.left" timestamp="1593068918516">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.1.left/67.27.1853.1173@67.27.1853.1173" timestamp="1592816666482" />
-    <state width="1807" height="495" key="GridCell.Tab.1.right" timestamp="1592816666483">
+    <state width="1830" height="495" key="GridCell.Tab.1.left/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918516" />
+    <state width="1830" height="495" key="GridCell.Tab.1.right" timestamp="1593068918517">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
     <state width="1515" height="167" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587296796048" />
-    <state width="1807" height="495" key="GridCell.Tab.1.right/67.27.1853.1173@67.27.1853.1173" timestamp="1592816666483" />
+    <state width="1830" height="495" key="GridCell.Tab.1.right/67.27.1853.1173@67.27.1853.1173" timestamp="1593068918517" />
     <state x="526" y="315" width="924" height="595" key="RollbackChangesDialog" timestamp="1592728172142">
       <screen x="67" y="27" width="1853" height="1173" />
     </state>
@@ -3314,7 +3324,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/AmitliTests/amitli.py</url>
-          <line>61</line>
+          <line>62</line>
           <option name="timeStamp" value="386" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -3322,16 +3332,25 @@
           <line>83</line>
           <option name="timeStamp" value="408" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Features/SeriesFeatures.py</url>
+          <line>198</line>
+          <option name="timeStamp" value="489" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="n_samples_train" language="Python" />
-        <watch expression="params['seq']" language="Python" />
-        <watch expression="params['timeSteps']" language="Python" />
-        <watch expression="params['seq']" language="Python" />
-        <watch expression="params['timeSteps']" language="Python" />
-        <watch expression="type(best_results)" language="Python" />
+        <watch expression="X.shape" language="Python" />
+        <watch expression="y.shape" language="Python" />
+        <watch expression="X_train.shape" language="Python" />
+        <watch expression="X_test.shape" language="Python" />
+        <watch expression="y_train.shape" language="Python" />
+        <watch expression="y_train.shape" language="Python" />
+        <watch expression="y_predict[13590][1]" language="Python" />
+        <watch expression="train_Id_list[1434]" language="Python" />
+        <watch expression="full_x_test.shape" language="Python" />
+        <watch expression="X.ndim" language="Python" />
       </configuration>
     </watches-manager>
   </component>
